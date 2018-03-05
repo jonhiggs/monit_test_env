@@ -7,3 +7,4 @@ set httpd port 2812 and
 check process daemon with pidfile "/var/run/daemon.pid"
   start program "/root/init.d/daemon start" with timeout 2 seconds
   stop program "/root/init.d/daemon stop" with timeout 2 seconds
+  group "daemon-group"

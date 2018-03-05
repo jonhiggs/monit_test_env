@@ -1,0 +1,9 @@
+set daemon 30
+
+set httpd port 2812 and
+  use address 0.0.0.0
+  allow 0.0.0.0/0.0.0.0
+
+check process daemon with pidfile "/var/run/daemon.pid"
+  start program "/root/init.d/daemon start" with timeout 2 seconds
+  stop program "/root/init.d/daemon stop" with timeout 2 seconds

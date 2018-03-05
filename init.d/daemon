@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+PIDFILE=/var/run/daemon.pid
+
+case "$1" in
+  start)
+      /root/bin/daemon.sh &
+      pid=$!
+      echo ${pid} > ${PIDFILE}
+      disown ${pid}
+    ;;
+  stop)
+      /sbin/start-stop-daemon --stop --quiet --pidfile ${PIDFILE}
+    ;;
+  *)      echo "nope"; exit 1
+esac
+
+exit 0
